@@ -14,7 +14,7 @@ RUN apk add --update --virtual .build-deps \
     && rm -rf /var/cache/apk/* \
     /home/fluent/.gem/ruby/2.3.0/cache/*.gem
 COPY fluent.conf /fluentd/etc/fluent.conf
-COPY fluent-plugin-detect-exceptions/fluent-plugin-detect-exceptions-0.0.9.gem /
-RUN gem install /fluent-plugin-detect-exceptions-0.0.9.gem 
+#COPY fluent-plugin-detect-exceptions/fluent-plugin-detect-exceptions-0.0.9.gem /
+#RUN gem install /fluent-plugin-detect-exceptions-0.0.9.gem 
 COPY entrypoint.sh /bin/entrypoint.sh
 CMD fluentd -v -c /fluentd/etc/${FLUENTD_CONF} $FLUENTD_OPT
